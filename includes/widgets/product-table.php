@@ -110,53 +110,81 @@ class Product_Table_Post extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'title',
+			'list',
 			[
-				'label' => esc_html__( 'Title', 'remarkablegroup-addon' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default title', 'remarkablegroup-addon' ),
-				'placeholder' => esc_html__( 'Type your title here', 'remarkablegroup-addon' ),
-				'label_block' => true,
-			]
-		);
-
-		$this->add_control(
-			'link_text',
-			[
-				'label' => esc_html__( 'Link Text', 'remarkablegroup-addon' ),
-				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => esc_html__( 'Default text', 'remarkablegroup-addon' ),
-				'placeholder' => esc_html__( 'Type your link text', 'remarkablegroup-addon' ),
-				'label_block' => true,
-			]
-		);
-
-		$this->add_control(
-			'link',
-			[
-				'label' => esc_html__( 'Link', 'remarkablegroup-addon' ),
-				'type' => \Elementor\Controls_Manager::URL,
-				'placeholder' => esc_html__( 'https://your-link.com', 'remarkablegroup-addon' ),
-				'default' => [
-					'url' => '',
-					'is_external' => true,
-					'nofollow' => true,
-					'custom_attributes' => '',
+				'label' => esc_html__( 'List', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::REPEATER,
+				'fields' => [
+					[
+						'name' => 'text',
+						'label' => esc_html__( 'Text', 'textdomain' ),
+						'type' => \Elementor\Controls_Manager::TEXT,
+						'placeholder' => esc_html__( 'List Item', 'textdomain' ),
+						'default' => esc_html__( 'List Item', 'textdomain' ),
+					],
 				],
-				'label_block' => true,
+				'default' => [
+					[
+						'text' => esc_html__( 'List Item #1', 'textdomain' ),
+						'link' => 'https://elementor.com/',
+					],
+					[
+						'text' => esc_html__( 'List Item #2', 'textdomain' ),
+						'link' => 'https://elementor.com/',
+					],
+				],
+				'title_field' => '{{{ text }}}',
 			]
 		);
 
-		$this->add_control(
-			'image',
-			[
-				'label' => esc_html__( 'Choose Image', 'remarkablegroup-addon' ),
-				'type' => \Elementor\Controls_Manager::MEDIA,
-				'default' => [
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
-				],
-			]
-		);
+		// $this->add_control(
+		// 	'title',
+		// 	[
+		// 		'label' => esc_html__( 'Title', 'remarkablegroup-addon' ),
+		// 		'type' => \Elementor\Controls_Manager::TEXT,
+		// 		'default' => esc_html__( 'Default title', 'remarkablegroup-addon' ),
+		// 		'placeholder' => esc_html__( 'Type your title here', 'remarkablegroup-addon' ),
+		// 		'label_block' => true,
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'link_text',
+		// 	[
+		// 		'label' => esc_html__( 'Link Text', 'remarkablegroup-addon' ),
+		// 		'type' => \Elementor\Controls_Manager::TEXT,
+		// 		'default' => esc_html__( 'Default text', 'remarkablegroup-addon' ),
+		// 		'placeholder' => esc_html__( 'Type your link text', 'remarkablegroup-addon' ),
+		// 		'label_block' => true,
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'link',
+		// 	[
+		// 		'label' => esc_html__( 'Link', 'remarkablegroup-addon' ),
+		// 		'type' => \Elementor\Controls_Manager::URL,
+		// 		'placeholder' => esc_html__( 'https://your-link.com', 'remarkablegroup-addon' ),
+		// 		'default' => [
+		// 			'url' => '',
+		// 			'is_external' => true,
+		// 			'nofollow' => true,
+		// 			'custom_attributes' => '',
+		// 		],
+		// 		'label_block' => true,
+		// 	]
+		// );
+
+		// $this->add_control(
+		// 	'image',
+		// 	[
+		// 		'label' => esc_html__( 'Choose Image', 'remarkablegroup-addon' ),
+		// 		'type' => \Elementor\Controls_Manager::MEDIA,
+		// 		'default' => [
+		// 			'url' => \Elementor\Utils::get_placeholder_image_src(),
+		// 		],
+		// 	]
+		// );
 
 		$this->end_controls_section();
 
